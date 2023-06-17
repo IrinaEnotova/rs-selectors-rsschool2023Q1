@@ -1,0 +1,23 @@
+.main_heading {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 45px;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+  padding: 20px 30px;
+}
+
+.main_help {
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.3);
+  padding: 8px 15px 10px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease-in;
+  cursor: pointer;
+}
+
+.main_help:hover {
+  text-decoration: underline;
+}

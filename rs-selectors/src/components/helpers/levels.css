@@ -1,0 +1,13 @@
+.levels-sidebar {
+  padding: 20px;
+  width: 30%;
+  height: 100%;
+  background-color: #1b1813;
+}
+
+.sidebar-heading {
+  font-size: 25px;
+  margin: 0;
+  padding: 0 0 10px 0;
+  color: #777;
+}

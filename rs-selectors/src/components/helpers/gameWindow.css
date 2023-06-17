@@ -1,0 +1,38 @@
+.wrapper {
+  background-color: #2e2a23;
+  width: 70%;
+  height: 100%;
+}
+
+.header {
+  padding: 23px 15px 11px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header_logo {
+  padding-left: 25px;
+  background-image: url('../../images/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.header_socials {
+  height: 23px;
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  padding-right: 28px;
+  background-image: url('../../images/github-logo.png');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.3s ease-in;
+  cursor: pointer;
+}
+
+.header_socials:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

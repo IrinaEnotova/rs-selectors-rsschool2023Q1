@@ -5,6 +5,8 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
   entry: {
@@ -50,6 +52,27 @@ const baseConfig = {
     new CleanWebpackPlugin(),
     new EslintPlugin({
       extensions: 'ts',
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/images/favicon.png',
+      favicons: {
+        icons: {
+          android: false, // Create Android homescreen icon. `boolean` or `{ offset, background }` or an array of sources
+          appleIcon: false, // Create Apple touch icons. `boolean` or `{ offset, background }` or an array of sources
+          appleStartup: false, // Create Apple startup images. `boolean` or `{ offset, background }` or an array of sources
+          favicons: true, // Create regular favicons. `boolean` or `{ offset, background }` or an array of sources
+          windows: false, // Create Windows 8 tile icons. `boolean` or `{ offset, background }` or an array of sources
+          yandex: false,
+        },
+      },
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/images'),
+          to: path.resolve(__dirname, 'dist/images'),
+        },
+      ],
     }),
   ],
 };

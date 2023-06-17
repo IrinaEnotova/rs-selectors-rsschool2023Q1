@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Exo 2', 'Lato', Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
