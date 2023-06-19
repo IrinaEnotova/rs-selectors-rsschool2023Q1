@@ -4,9 +4,8 @@ import Game from './components/helpers/classGame';
 // import dataLevels from './components/helpers/dataLevels';
 // import { ILevel } from './types/types';
 
-const currentGame = new Game();
+const currentGame = new Game(1); // сделать сеттер/геттер в зависимости от уровня
 currentGame.generateGame();
-
 // document.addEventListener('DOMContentLoaded', () => {
 //   localStorage.getItem('levelFulfilment');
 // });

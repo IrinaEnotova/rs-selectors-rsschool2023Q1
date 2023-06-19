@@ -2,12 +2,12 @@
   padding: 20px;
   width: 30%;
   height: 100%;
-  background-color: #1b1813;
+  background-color: rgb(181, 144, 126);
 }
 
 .sidebar-heading {
   font-size: 25px;
   margin: 0;
   padding: 0 0 10px 0;
-  color: #777;
+  color: #fff6ed;
 }

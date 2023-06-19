@@ -1,11 +1,11 @@
 .wrapper {
-  background-color: #2e2a23;
+  background-color: #fff6ed;
   width: 70%;
   height: 100%;
 }
 
 .header {
-  padding: 23px 15px 11px 35px;
+  padding: 23px 15px 11px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,23 +16,46 @@
   background-image: url('../../images/favicon.png');
   background-size: contain;
   background-repeat: no-repeat;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(181, 144, 126, 0.7);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+.header_logo:hover {
+  animation: bounce 1s;
 }
 
 .header_socials {
   height: 23px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(181, 144, 126, 0.5);
   text-decoration: none;
   padding-right: 28px;
   background-image: url('../../images/github-logo.png');
   background-size: contain;
   background-position: right;
   background-repeat: no-repeat;
-  color: rgba(255, 255, 255, 0.3);
   transition: color 0.3s ease-in;
   cursor: pointer;
 }
 
 .header_socials:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(181, 144, 126);
 }

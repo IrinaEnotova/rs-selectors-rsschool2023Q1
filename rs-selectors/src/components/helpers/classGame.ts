@@ -1,13 +1,18 @@
-import { createStaticLayout } from './createElement';
+import { createStaticLayout, createEditor } from './createElement';
 
 export default class Game {
   isCompleted: boolean;
 
-  constructor() {
-    this.isCompleted = true;
+  currentLevel: number;
+  // rightAnswer: string;
+
+  constructor(currentLevel: number) {
+    this.isCompleted = false;
+    this.currentLevel = currentLevel;
   }
 
   generateGame(): void {
     createStaticLayout();
+    createEditor();
   }
 }

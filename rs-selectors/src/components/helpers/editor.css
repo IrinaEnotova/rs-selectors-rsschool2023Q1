@@ -1,0 +1,92 @@
+.editor-wrapper {
+  display: flex;
+  width: 90%;
+  height: 48vh;
+  background-color: rgb(181, 144, 126);
+  border-radius: 4px;
+}
+
+.editor-pane {
+  width: 50%;
+  height: 97%;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 246, 237, 0.8);
+}
+
+.css-editor_title,
+.html-viewer_title {
+  padding: 5px;
+  font-size: 0.9rem;
+  color: rgba(255, 246, 237, 0.5);
+}
+
+.css-editor_name,
+.html-viewer_name {
+  padding: 0 5px 5px 5px;
+  color: rgba(255, 246, 237, 0.8);
+}
+
+.css-editor_input-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.css-editor_input {
+  height: 19px;
+  width: 70%;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 246, 237, 1);
+  animation: input 0.5s infinite;
+  -webkit-animation: input 1s infinite;
+  outline: none;
+}
+
+@keyframes input {
+  50% {
+    background: none;
+  }
+}
+
+.css-editor_btn {
+  width: 25%;
+  font-size: 0.7rem;
+  padding: 3px;
+  background: rgba(255, 246, 237, 1);
+  color: rgb(181, 144, 126);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.css-editor_btn:hover {
+  box-shadow: 2px 1px 1px #bbb4af;
+}
+
+.css-editor_help-box,
+.html-viewer_help-box {
+  display: flex;
+  height: 88.7%;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.editor_markup {
+  text-align: end;
+  padding: 5px;
+  width: 30px;
+  background-color: #ddd;
+  color: rgb(139, 111, 96);
+}
+
+.css-editor_content,
+.html-viewer_help-text {
+  color: rgba(181, 144, 126, 0.7);
+  padding: 5px;
+  width: 100%;
+}

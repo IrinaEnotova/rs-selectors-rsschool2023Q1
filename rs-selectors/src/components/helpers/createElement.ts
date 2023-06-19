@@ -1,6 +1,7 @@
 import './gameWindow.css';
 import './levels.css';
-import './table.css';
+import './shelter.css';
+import './editor.css';
 
 const createCustomElement = (tagName: string, className: string, parent: string, content = ''): void => {
   const childElement = document.createElement(tagName);
@@ -27,15 +28,33 @@ export const createStaticLayout = (): void => {
   createCustomElement('header', 'header', '.wrapper');
   createCustomElement('main', 'main', '.wrapper');
   // header
-  createCustomElement('div', 'header_logo', '.header', 'RS CSS Selectors');
+  createCustomElement('div', 'header_logo', '.header', 'RS CSS Paws');
   createLinkElement('header_socials', '.header', 'https://github.com/IrinaEnotova', 'Contact me');
   // main
-  createCustomElement('h1', 'main_heading', '.main', 'Select bla-bla-bla');
+  createCustomElement('h1', 'main_heading', '.main', 'Select an animal');
   createCustomElement('div', 'main_help', '.main', "Help, I'm stuck!");
   // game
   createCustomElement('div', 'game-wrapper', '.main', 'here is your table!');
   // editor
-  createCustomElement('div', 'editor-wrapper', '.main', 'here is your editor!');
+  createCustomElement('div', 'editor-wrapper', '.main');
+  createCustomElement('div', 'editor-pane css-editor', '.editor-wrapper');
+  createCustomElement('div', 'editor-pane html-viewer', '.editor-wrapper');
+  // css-editor
+  createCustomElement('div', 'css-editor_title', '.css-editor', 'style.css');
+  createCustomElement('div', 'css-editor_name', '.css-editor', 'Editor CSS');
+  createCustomElement('div', 'css-editor_help-box', '.css-editor');
+  createCustomElement('div', 'css-editor_help-markup editor_markup', '.css-editor_help-box');
+  createCustomElement('div', 'css-editor_content', '.css-editor_help-box');
+  createCustomElement('div', 'css-editor_input-box', '.css-editor_content');
+  createCustomElement('input', 'css-editor_input', '.css-editor_input-box');
+  createCustomElement('button', 'css-editor_btn', '.css-editor_input-box', 'Enter');
+  createCustomElement('div', 'css-editor_help-text', '.css-editor_content');
+  // html-viewer
+  createCustomElement('div', 'html-viewer_title', '.html-viewer', 'index.html');
+  createCustomElement('div', 'html-viewer_name', '.html-viewer', 'HTML Viewer');
+  createCustomElement('div', 'html-viewer_help-box', '.html-viewer');
+  createCustomElement('div', 'html-viewer_help-markup editor_markup', '.html-viewer_help-box');
+  createCustomElement('div', 'html-viewer_help-text', '.html-viewer_help-box');
   // create sidebar
   createCustomElement('aside', 'levels-sidebar', 'body');
   createCustomElement('header', 'sidebar-header', '.levels-sidebar');
@@ -43,4 +62,31 @@ export const createStaticLayout = (): void => {
   createCustomElement('h2', 'sidebar-heading', '.sidebar-header', 'Choose a level');
 };
 
-export const createSidebar = (): void => {};
+export const createEditor = (): void => {
+  const editorMarkups = document.querySelectorAll('.editor_markup');
+  const cssEditorContent = document.querySelector('.css-editor_help-text') as Element;
+  const htmlViewerContent = document.querySelector('.html-viewer_help-text') as Element;
+  let content = '';
+  for (let i = 1; i <= 20; i += 1) {
+    content += `${i}\n`;
+  }
+  editorMarkups[0].textContent = content;
+  cssEditorContent.innerHTML = `
+  {
+  <br>
+  /* Styles would go here. */
+  <br>
+  }
+  <br>
+  <br>
+  /*
+  <br>
+  Type a number to skip to a level.
+  <br>
+  Example → "5" for level 5
+  <br>
+  */
+  `;
+  editorMarkups[1].textContent = content;
+  htmlViewerContent.innerHTML = 'Here should be html code from level';
+};
