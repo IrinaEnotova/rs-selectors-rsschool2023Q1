@@ -63,7 +63,7 @@ export default class SidebarView extends View {
 
   getLevels(mainComponent: MainView): ISidebarLevel[] {
     // const editorView = new EditorView();
-    const shelterView = new ShelterView();
+    const shelterView = new ShelterView(1);
 
     const levels = [
       {

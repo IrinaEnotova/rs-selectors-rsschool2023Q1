@@ -4,13 +4,14 @@ import HeaderView from './header/header-view';
 import ElementCreator from '../../../util/element-creator';
 import TableView from './table/table-view';
 import EditorView from './editor/editor-view';
+import dataLevels from '../../../util/dataLevels';
 
 const CssClasses = {
   SHELTER: 'shelter-wrapper',
 };
 
 export default class ShelterView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'section',
       classNames: [CssClasses.SHELTER],
@@ -19,11 +20,11 @@ export default class ShelterView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
   // здесь тоже надо предусмотреть смену приюта
-  configureView(): void {
+  configureView(levelId: number): void {
     this.elementCreator.addInnerElement(new HeaderView().getHtmlElement());
     // здесь будет динамика - должен меняться заголовок
     this.elementCreator.addInnerElement(

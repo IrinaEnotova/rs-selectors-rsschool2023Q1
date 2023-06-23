@@ -29,8 +29,13 @@
   text-shadow: 1px 1px 2px rgb(233, 187, 165);
 }
 
-.level-active {
+.level-item__selected {
   font-weight: 700;
+  color: #6d6c72;
+}
+
+.level-item__completed {
+  background-image: url('../../../images/completed.png');
 }
 
 .reset-btn {
