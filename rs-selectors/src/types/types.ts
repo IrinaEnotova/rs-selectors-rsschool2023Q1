@@ -26,3 +26,26 @@ export interface ILevel {
   markup: string;
   isCompleted: StateOfLevel;
 }
+
+export interface IElCreationParams {
+  tag: string;
+  classNames: string[];
+  textContent?: string;
+  callback?: ((event: Event) => void) | null;
+}
+
+export interface IParamsInput {
+  classNames: string[];
+  textContent?: string;
+  callback?: ((event: Event) => void) | null;
+}
+
+export interface ILevelParams {
+  name: string;
+  callback?: ((event: Event) => void) | null;
+}
+
+export interface ISidebarLevel {
+  name: string;
+  callback: () => void;
+}

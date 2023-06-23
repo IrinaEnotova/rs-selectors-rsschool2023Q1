@@ -19,7 +19,7 @@
   margin-bottom: 10px;
   font-size: 1.2rem;
   color: #fff6ed;
-  background-image: url('../../images/not-completed.png');
+  background-image: url('../../../images/not-completed.png');
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;

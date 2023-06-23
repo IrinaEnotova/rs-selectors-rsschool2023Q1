@@ -1,4 +1,5 @@
-import { createStaticLayout, createEditor } from './createElement';
+import { createStaticLayout, createEditor, createLevels, createHelpModal } from './createElement';
+import dataLevels from '../../app/util/dataLevels';
 
 export default class Game {
   isCompleted: boolean;
@@ -14,5 +15,7 @@ export default class Game {
   generateGame(): void {
     createStaticLayout();
     createEditor();
+    createLevels(dataLevels);
+    createHelpModal();
   }
 }

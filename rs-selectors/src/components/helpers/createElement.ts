@@ -2,6 +2,8 @@ import './gameWindow.css';
 import './levels.css';
 import './shelter.css';
 import './editor.css';
+import './modal.css';
+import { ILevel } from '../../types/types';
 
 const createCustomElement = (tagName: string, className: string, parent: string, content = ''): void => {
   const childElement = document.createElement(tagName);
@@ -23,11 +25,9 @@ const createLinkElement = (className: string, parent: string, src: string, conte
 };
 
 export const createStaticLayout = (): void => {
-  // create main
   createCustomElement('div', 'wrapper', 'body');
   createCustomElement('header', 'header', '.wrapper');
   createCustomElement('main', 'main', '.wrapper');
-  // header
   createCustomElement('div', 'header_logo', '.header', 'RS CSS Paws');
   createLinkElement('header_socials', '.header', 'https://github.com/IrinaEnotova', 'Contact me');
   // main
@@ -55,10 +55,11 @@ export const createStaticLayout = (): void => {
   createCustomElement('div', 'html-viewer_help-box', '.html-viewer');
   createCustomElement('div', 'html-viewer_help-markup editor_markup', '.html-viewer_help-box');
   createCustomElement('div', 'html-viewer_help-text', '.html-viewer_help-box');
-  // create sidebar
+  // sidebar
   createCustomElement('aside', 'levels-sidebar', 'body');
   createCustomElement('header', 'sidebar-header', '.levels-sidebar');
   createCustomElement('div', 'levels-container', '.levels-sidebar');
+  createCustomElement('button', 'reset-btn', '.levels-sidebar', 'Reset progress');
   createCustomElement('h2', 'sidebar-heading', '.sidebar-header', 'Choose a level');
 };
 
@@ -89,4 +90,19 @@ export const createEditor = (): void => {
   `;
   editorMarkups[1].textContent = content;
   htmlViewerContent.innerHTML = 'Here should be html code from level';
+};
+
+export const createLevels = (data: ILevel[]): void => {
+  const levelContainer = document.querySelector('.levels-container');
+  for (let i = 1; i <= data.length; i += 1) {
+    const element = document.createElement('div');
+    element.className = `level-item level-${i}`;
+    element.textContent = `Level ${i}`;
+    levelContainer?.append(element);
+  }
+};
+
+export const createHelpModal = (): void => {
+  // createCustomElement('div', 'modal-container', 'body');
+  createCustomElement('cat', 'cat', '.game-wrapper');
 };
