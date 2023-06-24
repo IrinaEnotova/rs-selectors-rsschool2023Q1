@@ -5,7 +5,7 @@
 }
 
 .shelter-wrapper {
-  width: 100%;
+  width: 96%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,10 +28,19 @@
   border: none;
   border-radius: 20px;
   text-decoration: none;
-  transition: text-decoration 0.3s ease-in;
+  transition: all 0.3s ease-in;
   cursor: pointer;
 }
 
 .main_help:hover {
   text-decoration: underline;
+}
+
+.help-activated {
+  color: rgba(181, 144, 126, 1);
+  white-space: pre-wrap;
+}
+
+.help-activated:hover {
+  text-decoration: none;
 }

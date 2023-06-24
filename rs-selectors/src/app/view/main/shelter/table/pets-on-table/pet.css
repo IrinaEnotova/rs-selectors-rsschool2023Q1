@@ -13,12 +13,20 @@
   width: 100px;
   display: block;
   height: 100px;
-  animation: bounce 1s infinite;
   background-size: contain;
   background-position: right;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.pet-required {
+  animation: bounce 1s infinite;
 }
 
 .cat {
   background-image: url('../../../../../../images/cat.png');
+}
+
+.dog {
+  background-image: url('../../../../../../images/dog.png');
 }

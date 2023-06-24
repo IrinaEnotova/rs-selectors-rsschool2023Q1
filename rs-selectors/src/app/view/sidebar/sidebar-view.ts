@@ -48,11 +48,12 @@ export default class SidebarView extends View {
       const levelElement = new LevelView(level, this.levelElements);
       creatorLevelCont.addInnerElement(levelElement.getHtmlElement());
 
-      this.levelElements.push(levelElement);
       if (index === START_LEVEL_INDEX) {
         level.callback();
         levelElement.setSelectedStatus();
       }
+
+      this.levelElements.push(levelElement);
     });
 
     // сделать логику для кнопки сброса уровней - назначить колбек
@@ -62,50 +63,46 @@ export default class SidebarView extends View {
   }
 
   getLevels(mainComponent: MainView): ISidebarLevel[] {
-    // const editorView = new EditorView();
-    const shelterView = new ShelterView(1);
-
     const levels = [
       {
         name: 'Level 1',
-        callback: (): void => mainComponent.setContent(shelterView),
+        callback: (): void => mainComponent.setContent(new ShelterView(1)),
       },
-      // здесь просто тренировка - нужно для каждого уровня формировать свой контент в main
       {
         name: 'Level 2',
-        callback: (): void => mainComponent.setContent(shelterView),
+        callback: (): void => mainComponent.setContent(new ShelterView(2)),
       },
       {
         name: 'Level 3',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(3)),
       },
       {
         name: 'Level 4',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(4)),
       },
       {
         name: 'Level 5',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(5)),
       },
       {
         name: 'Level 6',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(6)),
       },
       {
         name: 'Level 7',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(7)),
       },
       {
         name: 'Level 8',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(8)),
       },
       {
         name: 'Level 9',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(9)),
       },
       {
         name: 'Level 10',
-        callback: (): void => {},
+        callback: (): void => mainComponent.setContent(new ShelterView(10)),
       },
     ];
 

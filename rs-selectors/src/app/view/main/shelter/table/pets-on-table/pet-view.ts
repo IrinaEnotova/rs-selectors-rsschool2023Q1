@@ -6,6 +6,8 @@ const CssClasses = {
   TABLE: 'table',
   PET: 'pet',
   CAT: 'cat',
+  DOG: 'dog',
+  REQUIRED: 'pet-required',
 };
 
 export default class PetView extends View {
@@ -24,13 +26,19 @@ export default class PetView extends View {
   configureView(): void {
     const paramsCat = {
       tag: 'cat',
-      classNames: [CssClasses.PET, CssClasses.CAT],
+      classNames: [CssClasses.PET, CssClasses.CAT, CssClasses.REQUIRED],
+      textContent: '',
+      callback: null,
+    };
+    const paramsDog = {
+      tag: 'dog',
+      classNames: [CssClasses.PET, CssClasses.DOG],
       textContent: '',
       callback: null,
     };
     const catCreator = new ElementCreator(paramsCat);
-    const catCreator1 = new ElementCreator(paramsCat);
+    const dogCreator = new ElementCreator(paramsDog);
     this.elementCreator.addInnerElement(catCreator);
-    this.elementCreator.addInnerElement(catCreator1);
+    this.elementCreator.addInnerElement(dogCreator);
   }
 }

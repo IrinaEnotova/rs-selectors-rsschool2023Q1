@@ -32,6 +32,7 @@
 .level-item__selected {
   font-weight: 700;
   color: #6d6c72;
+  background-image: url('../../../images/selected.png');
 }
 
 .level-item__completed {

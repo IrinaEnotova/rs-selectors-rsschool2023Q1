@@ -21,7 +21,6 @@ export interface ILevel {
   helpTitle: string;
   helpSyntax: string;
   helpInfo: string;
-  helpExamples: string[];
   selector: string;
   markup: string;
   isCompleted: StateOfLevel;

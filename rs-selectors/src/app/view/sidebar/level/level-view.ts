@@ -24,9 +24,8 @@ export default class LevelView extends View {
   }
 
   setSelectedStatus(): void {
-    this.levelElements.forEach((level) => {
-      level.setNotSelectedStatus();
-    });
+    this.levelElements.forEach((levelElement) => levelElement.setNotSelectedStatus());
+
     const element = this.elementCreator.getElement();
     element.classList.add(CssClasses.ITEM_SELECTED);
   }
@@ -38,6 +37,6 @@ export default class LevelView extends View {
 
   configureView(): void {
     const element = this.elementCreator.getElement();
-    element.addEventListener('click', () => this.setSelectedStatus.bind(this));
+    element.addEventListener('click', () => this.setSelectedStatus());
   }
 }
