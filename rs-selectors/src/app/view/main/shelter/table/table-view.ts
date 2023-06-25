@@ -7,7 +7,7 @@ const CssClasses = {
 };
 
 export default class TableView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.TABLE_WRAPPER],
@@ -16,10 +16,10 @@ export default class TableView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
-    this.elementCreator.addInnerElement(new PetView().getHtmlElement());
+  configureView(levelId: number): void {
+    this.elementCreator.addInnerElement(new PetView(levelId).getHtmlElement());
   }
 }

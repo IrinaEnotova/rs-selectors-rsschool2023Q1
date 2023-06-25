@@ -49,9 +49,7 @@ export default class ShelterView extends View {
         },
       }),
     );
-    // здесь должны появляться животные
-    this.elementCreator.addInnerElement(new TableView().getHtmlElement());
-    // здесь нужно добавить логику для инпута
+    this.elementCreator.addInnerElement(new TableView(levelId).getHtmlElement());
     this.elementCreator.addInnerElement(new EditorView().getHtmlElement());
   }
 }

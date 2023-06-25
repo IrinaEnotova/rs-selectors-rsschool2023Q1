@@ -5,6 +5,7 @@ import './level.css';
 const CssClasses = {
   ITEM: 'level-item',
   ITEM_SELECTED: 'level-item__selected',
+  ITEM_COMPLETED: 'level-item__completed',
 };
 
 export default class LevelView extends View {
@@ -33,6 +34,17 @@ export default class LevelView extends View {
   setNotSelectedStatus(): void {
     const element = this.elementCreator.getElement();
     element.classList.remove(CssClasses.ITEM_SELECTED);
+  }
+
+  setCompletedStatus(): void {
+    const element = this.elementCreator.getElement();
+    element.classList.add(CssClasses.ITEM_COMPLETED);
+  }
+
+  setNotCompletedStatus(): void {
+    this.levelElements.forEach((levelElement) => {
+      levelElement.getHtmlElement().classList.remove('CssClasses.ITEM_COMPLETED');
+    });
   }
 
   configureView(): void {

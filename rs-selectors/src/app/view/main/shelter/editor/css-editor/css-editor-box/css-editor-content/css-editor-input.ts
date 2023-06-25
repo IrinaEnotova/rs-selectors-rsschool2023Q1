@@ -26,7 +26,13 @@ export default class CssEditorInputBoxView extends View {
       tag: 'input',
       classNames: [CssClasses.INPUT],
       textContent: '',
-      callback: null,
+      callback: (event: Event): void => {
+        const keyboardEvent = event as KeyboardEvent;
+        const keyCode = keyboardEvent.code;
+        if (keyCode === 'Enter') {
+          console.log('Done');
+        }
+      },
     };
     const inputCreator = new InputCreator(paramsInput);
     this.elementCreator.addInnerElement(inputCreator);

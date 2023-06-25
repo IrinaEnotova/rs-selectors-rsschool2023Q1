@@ -11,11 +11,17 @@ export default class InputCreator extends ElementCreator {
     if (param.callback) {
       this.setCallback(param.callback);
     }
+    this.setPlaceholder();
   }
 
   override setCallback(callback: ((event: Event) => void) | null): void {
     if (callback) {
       this.element?.addEventListener('keyup', (event) => callback(event));
     }
+  }
+
+  setPlaceholder(): void {
+    const element = this.element as HTMLInputElement;
+    element.placeholder = 'Type here!';
   }
 }
