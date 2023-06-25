@@ -1,3 +1,4 @@
+import dataLevels from '../../../../../../../util/dataLevels';
 import ElementCreator from '../../../../../../../util/element-creator';
 import View from '../../../../../../view';
 
@@ -7,7 +8,7 @@ const CssClasses = {
 };
 
 export default class HtmlViewerContentView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.CONTENT],
@@ -16,12 +17,12 @@ export default class HtmlViewerContentView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
   // здесь нужно пробрасывать разметку при смене уровней
-  configureView(): void {
-    const content = 'Here should be correct tags';
+  configureView(levelId: number): void {
+    const content = dataLevels[levelId - 1].markup;
     const paramsHelp = {
       tag: 'div',
       classNames: [CssClasses.HELP],

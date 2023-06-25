@@ -8,7 +8,7 @@ const CssClasses = {
 };
 
 export default class CssEditorContentView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.CONTENT],
@@ -17,10 +17,10 @@ export default class CssEditorContentView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
+  configureView(levelId: number): void {
     const content =
       '{\n/* Styles would go here. */\n}\n\n/*\nType a number to skip to a level.\nExample → "5" for level 5\n*/';
     const paramsHelp = {
@@ -30,7 +30,7 @@ export default class CssEditorContentView extends View {
       callback: null,
     };
 
-    this.elementCreator.addInnerElement(new CssEditorInputBoxView().getHtmlElement());
+    this.elementCreator.addInnerElement(new CssEditorInputBoxView(levelId).getHtmlElement());
     const helpCreator = new ElementCreator(paramsHelp);
     this.elementCreator.addInnerElement(helpCreator);
   }

@@ -9,7 +9,7 @@ const CssClasses = {
 };
 
 export default class CssEditorBoxView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.CONTAINER],
@@ -18,10 +18,10 @@ export default class CssEditorBoxView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
+  configureView(levelId: number): void {
     let content = '';
     for (let i = 1; i <= 20; i += 1) {
       content += `${i}\n`;
@@ -35,6 +35,6 @@ export default class CssEditorBoxView extends View {
 
     const markupCreator = new ElementCreator(paramsMarkup);
     this.elementCreator.addInnerElement(markupCreator);
-    this.elementCreator.addInnerElement(new CssEditorContentView().getHtmlElement());
+    this.elementCreator.addInnerElement(new CssEditorContentView(levelId).getHtmlElement());
   }
 }

@@ -10,7 +10,7 @@ const CssClasses = {
 };
 
 export default class CssEditorView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.EDITOR],
@@ -19,10 +19,10 @@ export default class CssEditorView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
+  configureView(levelId: number): void {
     const paramsFilename = {
       tag: 'div',
       classNames: [CssClasses.FILENAME],
@@ -41,6 +41,6 @@ export default class CssEditorView extends View {
     const editorNameCreator = new ElementCreator(paramsName);
     this.elementCreator.addInnerElement(filenameCreator);
     this.elementCreator.addInnerElement(editorNameCreator);
-    this.elementCreator.addInnerElement(new CssEditorBoxView().getHtmlElement());
+    this.elementCreator.addInnerElement(new CssEditorBoxView(levelId).getHtmlElement());
   }
 }

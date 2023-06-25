@@ -8,7 +8,7 @@ const CssClasses = {
 };
 
 export default class EditorView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.EDITOR_WRAPPER],
@@ -17,11 +17,11 @@ export default class EditorView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
-    this.elementCreator.addInnerElement(new CssEditorView().getHtmlElement());
-    this.elementCreator.addInnerElement(new HtmlEditorView().getHtmlElement());
+  configureView(levelId: number): void {
+    this.elementCreator.addInnerElement(new CssEditorView(levelId).getHtmlElement());
+    this.elementCreator.addInnerElement(new HtmlEditorView(levelId).getHtmlElement());
   }
 }

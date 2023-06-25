@@ -23,7 +23,6 @@ export default class ShelterView extends View {
     this.configureView(levelId);
   }
 
-  // здесь тоже надо предусмотреть смену приюта
   configureView(levelId: number): void {
     this.elementCreator.addInnerElement(new HeaderView().getHtmlElement());
     this.elementCreator.addInnerElement(
@@ -34,7 +33,6 @@ export default class ShelterView extends View {
         callback: null,
       }),
     );
-    // здесь будет динамика - плюс должно открываться модальное окно - поменять колбек
     this.elementCreator.addInnerElement(
       new ElementCreator({
         tag: 'button',
@@ -50,6 +48,7 @@ export default class ShelterView extends View {
       }),
     );
     this.elementCreator.addInnerElement(new TableView(levelId).getHtmlElement());
-    this.elementCreator.addInnerElement(new EditorView().getHtmlElement());
+    // здесь доработать логику для правильного/неправильного ответа
+    this.elementCreator.addInnerElement(new EditorView(levelId).getHtmlElement());
   }
 }

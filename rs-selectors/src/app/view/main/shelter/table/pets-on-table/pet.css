@@ -37,6 +37,10 @@
   height: 50px;
 }
 
+.dog-bowl {
+  background-image: url('../../../../../../images/dog-bowl.png');
+}
+
 .humster {
   background-image: url('../../../../../../images/humster.png');
   height: 60px;
@@ -53,4 +57,8 @@
 
 .dog-pillow {
   background-image: url('../../../../../../images/dog-pillow.png');
+}
+
+.pillow {
+  background-image: url('../../../../../../images/pillow.png');
 }

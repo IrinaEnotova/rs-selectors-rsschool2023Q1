@@ -1,3 +1,4 @@
+import dataLevels from '../../../../../../../util/dataLevels';
 import ElementCreator from '../../../../../../../util/element-creator';
 import InputCreator from '../../../../../../../util/input-creator';
 import View from '../../../../../../view';
@@ -9,7 +10,7 @@ const CssClasses = {
 };
 
 export default class CssEditorInputBoxView extends View {
-  constructor() {
+  constructor(levelId: number) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.BOX],
@@ -18,10 +19,10 @@ export default class CssEditorInputBoxView extends View {
     };
     super(params);
 
-    this.configureView();
+    this.configureView(levelId);
   }
 
-  configureView(): void {
+  configureView(levelId: number): void {
     const paramsInput = {
       tag: 'input',
       classNames: [CssClasses.INPUT],
@@ -29,8 +30,14 @@ export default class CssEditorInputBoxView extends View {
       callback: (event: Event): void => {
         const keyboardEvent = event as KeyboardEvent;
         const keyCode = keyboardEvent.code;
+        const input = keyboardEvent.target as HTMLInputElement;
+        const rightAnswer = dataLevels[levelId - 1].selector;
         if (keyCode === 'Enter') {
-          console.log('Done');
+          if (input.value === rightAnswer) {
+            console.log('right');
+          } else {
+            console.log('wrong');
+          }
         }
       },
     };
