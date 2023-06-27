@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import dataLevels from '../../../../../../../util/dataLevels';
 import ElementCreator from '../../../../../../../util/element-creator';
 import InputCreator from '../../../../../../../util/input-creator';
@@ -36,7 +37,12 @@ export default class CssEditorInputBoxView extends View {
           if (input.value === rightAnswer) {
             console.log('right');
           } else {
+            const editor = document.querySelector('.editor-wrapper') as HTMLElement;
+            editor.classList.add('shake');
             console.log('wrong');
+            setTimeout(() => {
+              editor.classList.remove('shake');
+            }, 1000);
           }
         }
       },
@@ -48,7 +54,20 @@ export default class CssEditorInputBoxView extends View {
       tag: 'button',
       classNames: [CssClasses.BTN],
       textContent: 'Enter',
-      callback: null,
+      callback: (): void => {
+        const input = document.querySelector('input') as HTMLInputElement;
+        const rightAnswer = dataLevels[levelId - 1].selector;
+        if (input.value === rightAnswer) {
+          console.log('right');
+        } else {
+          const editor = document.querySelector('.editor-wrapper') as HTMLElement;
+          editor.classList.add('shake');
+          console.log('wrong');
+          setTimeout(() => {
+            editor.classList.remove('shake');
+          }, 1000);
+        }
+      },
     };
 
     const btnCreator = new ElementCreator(paramsBtn);

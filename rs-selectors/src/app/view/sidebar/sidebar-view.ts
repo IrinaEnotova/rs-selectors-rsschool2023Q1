@@ -58,7 +58,17 @@ export default class SidebarView extends View {
 
     // сделать логику для кнопки сброса уровней - назначить колбек
     this.elementCreator.addInnerElement(
-      new ElementCreator({ tag: 'button', classNames: ['reset-btn'], textContent: 'Reset progress', callback: null }),
+      new ElementCreator({
+        tag: 'button',
+        classNames: ['reset-btn'],
+        textContent: 'Reset progress',
+        callback: (): void => {
+          console.log('Reset levels');
+          this.levelElements.forEach((level) => {
+            level.setNotCompletedStatus();
+          });
+        },
+      }),
     );
   }
 

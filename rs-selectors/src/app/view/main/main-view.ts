@@ -21,7 +21,6 @@ export default class MainView extends View {
     const element = view.getHtmlElement();
     const currentElement = this.elementCreator.getElement();
 
-    // если есть внутренние дочерние элементы
     while (currentElement.firstElementChild) {
       currentElement.firstElementChild.remove();
     }
