@@ -2,6 +2,7 @@
 import { IElCreationParams, ISidebarLevel } from '../../../types/types';
 import ElementCreator from '../../util/element-creator';
 import MainView from '../main/main-view';
+// eslint-disable-next-line import/no-cycle
 import ShelterView from '../main/shelter/shelter-view';
 import View from '../view';
 import LevelView from './level/level-view';

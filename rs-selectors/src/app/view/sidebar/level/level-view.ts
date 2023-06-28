@@ -8,6 +8,9 @@ const CssClasses = {
   ITEM_COMPLETED: 'level-item__completed',
 };
 
+// eslint-disable-next-line import/no-mutable-exports
+export let levelsforImport: LevelView[];
+
 export default class LevelView extends View {
   levelElements: LevelView[];
 
@@ -21,6 +24,7 @@ export default class LevelView extends View {
     super(params);
 
     this.levelElements = levelElements;
+    levelsforImport = levelElements;
     this.configureView();
   }
 

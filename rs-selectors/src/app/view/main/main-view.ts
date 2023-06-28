@@ -4,7 +4,6 @@ import './main.css';
 const CssClasses = {
   MAIN: 'main',
 };
-// const TEXT = 'SPA example';
 
 export default class MainView extends View {
   constructor() {
