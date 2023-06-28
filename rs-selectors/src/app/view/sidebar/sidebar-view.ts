@@ -57,7 +57,6 @@ export default class SidebarView extends View {
       this.levelElements.push(levelElement);
     });
 
-    // сделать логику для кнопки сброса уровней - назначить колбек
     this.elementCreator.addInnerElement(
       new ElementCreator({
         tag: 'button',
@@ -66,7 +65,7 @@ export default class SidebarView extends View {
         callback: (): void => {
           console.log('Reset levels');
           this.levelElements.forEach((level) => {
-            level.setNotCompletedStatus();
+            level.getHtmlElement().classList.remove('level-item__completed');
           });
         },
       }),
