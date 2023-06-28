@@ -40,7 +40,7 @@ const dataLevels: ILevel[] = [
     helpSyntax: '#bowl',
     helpInfo:
       'Selects the element with a specific <strong>id</strong>.\n You can also combine the ID selector with the type selector.\n\n EXAMPLES:\n<strong>#cool</strong> selects any element with <strong>id="cool"</strong>\n<strong>ul#long</strong> selects <tag>ul id="long"</tag>',
-    selector: '#fancy',
+    selector: '#bowl',
     markup: `<div class="shelter">
     <cat id="bowl"/>
     <cat/>
@@ -128,7 +128,7 @@ const dataLevels: ILevel[] = [
     helpSyntax: 'A > B',
     helpInfo:
       'You can select elements that are direct children of other elements.\n A child element is any element that is nested directly in another element.\n <br><br>Elements that are nested deeper than that are called descendant elements.\n\n EXAMPLES:\n<strong>A > B</strong> selects all <strong>B</strong> that are a direct children <strong>A</strong>',
-    selector: 'pillow > dog',
+    selector: 'pillow>dog',
     markup: `<div class="shelter">
     <dog class="small"/>
     <dog id="bowl"/>
@@ -168,7 +168,7 @@ const dataLevels: ILevel[] = [
     helpSyntax: ':first-child',
     helpInfo:
       'You can select the first child element.\n A child element is any element that is directly nested in another element.\n You can combine this pseudo-selector with other selectors.\n\n EXAMPLES:\n<strong>:first-child</strong> selects all first child elements.\n<strong>p:first-child</strong> selects all first child <tag>p</tag> elements.',
-    selector: 'div:first-child',
+    selector: '.shelter:first-child',
     markup: `<div class="shelter">
     <humster/>
     <humster/>

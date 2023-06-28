@@ -1,4 +1,4 @@
-.table {
+.shelter {
   display: flex;
   align-items: flex-end;
   gap: 10px;
@@ -61,4 +61,17 @@
 
 .pillow {
   background-image: url('../../../../../../images/pillow.png');
+}
+
+@keyframes invisibility {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+.invisible {
+  animation: 1s invisibility;
 }

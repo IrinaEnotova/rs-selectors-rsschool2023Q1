@@ -1,4 +1,5 @@
-/* eslint-disable max-lines-per-function */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import JSConfetti from 'js-confetti';
 // eslint-disable-next-line import/no-cycle
 import { importMain } from '../../../../../../../app';
 import dataLevels from '../../../../../../../util/dataLevels';
@@ -40,27 +41,9 @@ export default class CssEditorInputBoxView extends View {
 
         if (keyCode === 'Enter') {
           if (input.value === rightAnswer) {
-            // const currentLevel = document.querySelector('.level-item__selected') as HTMLElement & LevelView;
-            // currentLevel.className = 'level-item level-item__completed';
-            // const levels = document.querySelectorAll('.level-item') as NodeListOf<HTMLElement> & LevelView[];
-            // levels[levelId].className = 'level-item level-item__selected';
-            levelsforImport.forEach((level, index) => {
-              if (level.getHtmlElement().classList.contains('level-item__selected')) {
-                level.getHtmlElement().classList.remove('level-item__selected');
-                level.getHtmlElement().classList.add('level-item__completed');
-              }
-              if (index === levelId) {
-                level.getHtmlElement().classList.add('level-item__selected');
-              }
-            });
-            importMain.setContent(new ShelterView(levelId + 1));
+            this.getRightAnswer(levelId);
           } else {
-            const editor = document.querySelector('.editor-wrapper') as HTMLElement;
-            editor.classList.add('shake');
-            console.log('wrong');
-            setTimeout(() => {
-              editor.classList.remove('shake');
-            }, 1000);
+            this.getWrongAnswer();
           }
         }
       },
@@ -76,19 +59,46 @@ export default class CssEditorInputBoxView extends View {
         const input = document.querySelector('input') as HTMLInputElement;
         const rightAnswer = dataLevels[levelId - 1].selector;
         if (input.value === rightAnswer) {
-          console.log('right');
+          this.getRightAnswer(levelId);
         } else {
-          const editor = document.querySelector('.editor-wrapper') as HTMLElement;
-          editor.classList.add('shake');
-          console.log('wrong');
-          setTimeout(() => {
-            editor.classList.remove('shake');
-          }, 1000);
+          this.getWrongAnswer();
         }
       },
     };
-
     const btnCreator = new ElementCreator(paramsBtn);
     this.elementCreator.addInnerElement(btnCreator);
+  }
+
+  getRightAnswer(levelId: number): void {
+    const jsConfetti = new JSConfetti();
+    jsConfetti.addConfetti({
+      emojis: ['🐕', '🐱', '🐹', '✨', '🦴', '💗'],
+      emojiSize: 20,
+      confettiNumber: 100,
+    });
+    levelsforImport.forEach((level, index) => {
+      if (level.getHtmlElement().classList.contains('level-item__selected')) {
+        level.getHtmlElement().classList.remove('level-item__selected');
+        level.getHtmlElement().classList.add('level-item__completed');
+      }
+      if (index === levelId) {
+        level.getHtmlElement().classList.add('level-item__selected');
+      }
+    });
+    if (levelId < levelsforImport.length) {
+      importMain.setContent(new ShelterView(levelId + 1));
+    } else {
+      levelsforImport[0].getHtmlElement().classList.add('level-item__selected');
+      importMain.setContent(new ShelterView(1));
+    }
+  }
+
+  getWrongAnswer(): void {
+    const editor = document.querySelector('.editor-wrapper') as HTMLElement;
+    editor.classList.add('shake');
+    console.log('wrong');
+    setTimeout(() => {
+      editor.classList.remove('shake');
+    }, 1000);
   }
 }

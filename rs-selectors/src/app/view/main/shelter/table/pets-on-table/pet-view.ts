@@ -4,7 +4,7 @@ import View from '../../../../view';
 import './pet.css';
 
 const CssClasses = {
-  TABLE: 'table',
+  TABLE: 'shelter',
   PET: 'pet',
   CAT: 'cat',
   DOG: 'dog',
