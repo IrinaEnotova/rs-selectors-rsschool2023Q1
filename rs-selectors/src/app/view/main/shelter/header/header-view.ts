@@ -32,12 +32,14 @@ export default class HeaderView extends View {
     this.elementCreator.addInnerElement(logoCreator);
 
     const paramsContact = {
-      tag: 'div',
+      tag: 'a',
       classNames: [CssClasses.CONTACT],
       textContent: 'Contact me',
       callback: null,
     };
     const contactCreator = new ElementCreator(paramsContact);
+    const contactLink = contactCreator.getElement() as HTMLLinkElement;
+    contactLink.href = 'https://github.com/IrinaEnotova';
     this.elementCreator.addInnerElement(contactCreator);
   }
 }
