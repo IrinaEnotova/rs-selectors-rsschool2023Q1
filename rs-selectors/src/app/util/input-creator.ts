@@ -1,5 +1,6 @@
 import ElementCreator from './element-creator';
 import { IParamsInput } from '../../types/types';
+import dataLevels from './dataLevels';
 
 export default class InputCreator extends ElementCreator {
   override createElement(param: IParamsInput): void {
@@ -18,6 +19,11 @@ export default class InputCreator extends ElementCreator {
     if (callback) {
       this.element?.addEventListener('keyup', (event) => callback(event));
     }
+  }
+
+  setValue(levelId: number, usedHelp: boolean): void {
+    const input = this.element as HTMLInputElement;
+    input.value = usedHelp ? dataLevels[levelId - 1].selector : '';
   }
 
   setPlaceholder(): void {

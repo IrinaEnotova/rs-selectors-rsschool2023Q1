@@ -1,4 +1,5 @@
 import ElementCreator from '../../../../../util/element-creator';
+// eslint-disable-next-line import/no-cycle
 import CssEditorBoxView from './css-editor-box/css-editor-box-view';
 import View from '../../../../view';
 
@@ -10,7 +11,7 @@ const CssClasses = {
 };
 
 export default class CssEditorView extends View {
-  constructor(levelId: number) {
+  constructor(levelId: number, usedHelp: boolean) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.EDITOR],
@@ -19,10 +20,10 @@ export default class CssEditorView extends View {
     };
     super(params);
 
-    this.configureView(levelId);
+    this.configureView(levelId, usedHelp);
   }
 
-  configureView(levelId: number): void {
+  configureView(levelId: number, usedHelp: boolean): void {
     const paramsFilename = {
       tag: 'div',
       classNames: [CssClasses.FILENAME],
@@ -41,6 +42,6 @@ export default class CssEditorView extends View {
     const editorNameCreator = new ElementCreator(paramsName);
     this.elementCreator.addInnerElement(filenameCreator);
     this.elementCreator.addInnerElement(editorNameCreator);
-    this.elementCreator.addInnerElement(new CssEditorBoxView(levelId).getHtmlElement());
+    this.elementCreator.addInnerElement(new CssEditorBoxView(levelId, usedHelp).getHtmlElement());
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import JSConfetti from 'js-confetti';
 // eslint-disable-next-line import/no-cycle
@@ -16,7 +17,7 @@ const CssClasses = {
 };
 
 export default class CssEditorInputBoxView extends View {
-  constructor(levelId: number) {
+  constructor(levelId: number, usedHelp: boolean) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.BOX],
@@ -25,10 +26,10 @@ export default class CssEditorInputBoxView extends View {
     };
     super(params);
 
-    this.configureView(levelId);
+    this.configureView(levelId, usedHelp);
   }
 
-  configureView(levelId: number): void {
+  configureView(levelId: number, usedHelp: boolean): void {
     const paramsInput = {
       tag: 'input',
       classNames: [CssClasses.INPUT],
@@ -41,7 +42,7 @@ export default class CssEditorInputBoxView extends View {
 
         if (keyCode === 'Enter') {
           if (input.value === rightAnswer) {
-            this.getRightAnswer(levelId);
+            this.getRightAnswer(levelId, usedHelp);
           } else {
             this.getWrongAnswer();
           }
@@ -50,7 +51,7 @@ export default class CssEditorInputBoxView extends View {
     };
     const inputCreator = new InputCreator(paramsInput);
     this.elementCreator.addInnerElement(inputCreator);
-
+    inputCreator.setValue(levelId, usedHelp);
     const paramsBtn = {
       tag: 'button',
       classNames: [CssClasses.BTN],
@@ -59,7 +60,7 @@ export default class CssEditorInputBoxView extends View {
         const input = document.querySelector('input') as HTMLInputElement;
         const rightAnswer = dataLevels[levelId - 1].selector;
         if (input.value === rightAnswer) {
-          this.getRightAnswer(levelId);
+          this.getRightAnswer(levelId, usedHelp);
         } else {
           this.getWrongAnswer();
         }
@@ -69,7 +70,7 @@ export default class CssEditorInputBoxView extends View {
     this.elementCreator.addInnerElement(btnCreator);
   }
 
-  getRightAnswer(levelId: number): void {
+  getRightAnswer(levelId: number, usedHelp: boolean): void {
     const jsConfetti = new JSConfetti();
     jsConfetti.addConfetti({
       emojis: ['🐕', '🐱', '🐹', '✨', '🦴', '💗'],
@@ -79,7 +80,11 @@ export default class CssEditorInputBoxView extends View {
     levelsforImport.forEach((level, index) => {
       if (level.getHtmlElement().classList.contains('level-item__selected')) {
         level.getHtmlElement().classList.remove('level-item__selected');
-        level.getHtmlElement().classList.add('level-item__completed');
+        if (usedHelp === false) {
+          level.getHtmlElement().classList.add('level-item__completed');
+        } else {
+          level.getHtmlElement().classList.add('help-used');
+        }
       }
       if (index === levelId) {
         level.getHtmlElement().classList.add('level-item__selected');

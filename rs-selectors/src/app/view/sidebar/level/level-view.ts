@@ -6,6 +6,7 @@ const CssClasses = {
   ITEM: 'level-item',
   ITEM_SELECTED: 'level-item__selected',
   ITEM_COMPLETED: 'level-item__completed',
+  ITEM_HELP_USED: 'help-used',
 };
 
 // eslint-disable-next-line import/no-mutable-exports

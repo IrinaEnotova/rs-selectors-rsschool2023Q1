@@ -1,5 +1,6 @@
 import ElementCreator from '../../../../../../../util/element-creator';
 import View from '../../../../../../view';
+// eslint-disable-next-line import/no-cycle
 import CssEditorInputBoxView from './css-editor-input';
 
 const CssClasses = {
@@ -8,7 +9,7 @@ const CssClasses = {
 };
 
 export default class CssEditorContentView extends View {
-  constructor(levelId: number) {
+  constructor(levelId: number, usedHelp: boolean) {
     const params = {
       tag: 'div',
       classNames: [CssClasses.CONTENT],
@@ -17,10 +18,10 @@ export default class CssEditorContentView extends View {
     };
     super(params);
 
-    this.configureView(levelId);
+    this.configureView(levelId, usedHelp);
   }
 
-  configureView(levelId: number): void {
+  configureView(levelId: number, usedHelp: boolean): void {
     const content =
       '{\n/* Styles would go here. */\n}\n\n/*\nType a number to skip to a level.\nExample → "5" for level 5\n*/';
     const paramsHelp = {
@@ -30,7 +31,7 @@ export default class CssEditorContentView extends View {
       callback: null,
     };
 
-    this.elementCreator.addInnerElement(new CssEditorInputBoxView(levelId).getHtmlElement());
+    this.elementCreator.addInnerElement(new CssEditorInputBoxView(levelId, usedHelp).getHtmlElement());
     const helpCreator = new ElementCreator(paramsHelp);
     this.elementCreator.addInnerElement(helpCreator);
   }

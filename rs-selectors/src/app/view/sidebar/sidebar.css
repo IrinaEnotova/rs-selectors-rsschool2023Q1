@@ -39,6 +39,10 @@
   background-image: url('../../../images/completed.png');
 }
 
+.help-used {
+  background-image: url('../../../images/search.png');
+}
+
 .reset-btn {
   width: fit-content;
   margin-top: 15px;

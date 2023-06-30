@@ -66,6 +66,7 @@ export default class SidebarView extends View {
           console.log('Reset levels');
           this.levelElements.forEach((level) => {
             level.getHtmlElement().classList.remove('level-item__completed');
+            level.getHtmlElement().classList.remove('help-used');
           });
         },
       }),
