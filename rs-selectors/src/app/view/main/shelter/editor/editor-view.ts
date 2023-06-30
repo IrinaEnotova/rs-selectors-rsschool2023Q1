@@ -22,7 +22,6 @@ export default class EditorView extends View {
   }
 
   configureView(levelId: number, usedHelp: boolean): void {
-    console.log(usedHelp);
     this.elementCreator.addInnerElement(new CssEditorView(levelId, usedHelp).getHtmlElement());
     this.elementCreator.addInnerElement(new HtmlEditorView(levelId).getHtmlElement());
   }
