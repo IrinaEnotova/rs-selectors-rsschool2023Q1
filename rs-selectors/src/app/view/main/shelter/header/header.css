@@ -38,6 +38,11 @@
   animation: bounce 1s;
 }
 
+.socials-container {
+  display: flex;
+  gap: 7px;
+}
+
 .header_socials {
   height: 23px;
   color: rgba(181, 144, 126, 0.5);
@@ -53,4 +58,21 @@
 
 .header_socials:hover {
   color: rgba(181, 144, 126);
+}
+
+.school_logo {
+  min-width: 60px;
+  min-height: 20px;
+  padding-left: 25px;
+  background-image: url('../../../../../images/rs_school_js.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  color: rgba(181, 144, 126, 0.7);
+  cursor: pointer;
+}
+
+.header_year {
+  height: 23px;
+  color: rgba(181, 144, 126, 0.5);
+  text-decoration: none;
 }

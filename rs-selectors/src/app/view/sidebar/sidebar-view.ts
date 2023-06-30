@@ -13,12 +13,12 @@ const CssClasses = {
   LEVELS: 'levels-container',
 };
 
-const START_LEVEL_INDEX = 0;
+// const START_LEVEL_INDEX = 0;
 
 export default class SidebarView extends View {
   levelElements: LevelView[];
 
-  constructor(mainComponent: MainView) {
+  constructor(mainComponent: MainView, levelId: number) {
     const params: IElCreationParams = {
       tag: 'aside',
       classNames: [CssClasses.SIDEBAR],
@@ -26,10 +26,10 @@ export default class SidebarView extends View {
     super(params);
 
     this.levelElements = [];
-    this.configureView(mainComponent);
+    this.configureView(mainComponent, levelId);
   }
 
-  configureView(mainComponent: MainView): void {
+  configureView(mainComponent: MainView, levelId: number): void {
     this.elementCreator.addInnerElement(
       new ElementCreator({ tag: 'h2', classNames: ['sidebar-heading'], textContent: 'Choose a level', callback: null }),
     );
@@ -49,7 +49,7 @@ export default class SidebarView extends View {
       const levelElement = new LevelView(level, this.levelElements);
       creatorLevelCont.addInnerElement(levelElement.getHtmlElement());
 
-      if (index === START_LEVEL_INDEX) {
+      if (index === levelId) {
         level.callback();
         levelElement.setSelectedStatus();
       }

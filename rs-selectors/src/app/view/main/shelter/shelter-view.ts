@@ -6,7 +6,6 @@ import TableView from './table/table-view';
 // eslint-disable-next-line import/no-cycle
 import EditorView from './editor/editor-view';
 import dataLevels from '../../../util/dataLevels';
-import FooterView from './footer/footer-view';
 
 const CssClasses = {
   SHELTER: 'shelter-wrapper',
@@ -58,6 +57,5 @@ export default class ShelterView extends View {
     );
     this.elementCreator.addInnerElement(new TableView(levelId).getHtmlElement());
     this.elementCreator.addInnerElement(new EditorView(levelId, usedHelp).getHtmlElement());
-    this.elementCreator.addInnerElement(new FooterView().getHtmlElement());
   }
 }
