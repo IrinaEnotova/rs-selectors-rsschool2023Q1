@@ -41,10 +41,18 @@ export default class CssEditorInputBoxView extends View {
         const rightAnswer = dataLevels[levelId - 1].selector;
 
         if (keyCode === 'Enter') {
-          if (input.value === rightAnswer) {
-            this.getRightAnswer(levelId, usedHelp);
-          } else {
-            this.getWrongAnswer();
+          if (!Number.isNaN(+input.value)) {
+            levelsforImport.forEach((level) => {
+              level.getHtmlElement().classList.remove('level-item__selected');
+            });
+            levelsforImport[+input.value - 1].getHtmlElement().classList.add('level-item__selected');
+            importMain.setContent(new ShelterView(+input.value));
+          } else if (Number.isNaN(+input.value)) {
+            if (input.value === rightAnswer) {
+              this.getRightAnswer(levelId, usedHelp);
+            } else {
+              this.getWrongAnswer();
+            }
           }
         }
       },
