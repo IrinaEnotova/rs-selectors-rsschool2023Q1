@@ -1,6 +1,5 @@
 import View from '../../view';
 import { IElCreationParams, ILevelParams } from '../../../../types/types';
-import './level.css';
 
 const CssClasses = {
   ITEM: 'level-item',

@@ -60,6 +60,7 @@ export default class CssEditorInputBoxView extends View {
     const inputCreator = new InputCreator(paramsInput);
     this.elementCreator.addInnerElement(inputCreator);
     inputCreator.setValue(levelId, usedHelp);
+
     const paramsBtn = {
       tag: 'button',
       classNames: [CssClasses.BTN],
@@ -117,7 +118,6 @@ export default class CssEditorInputBoxView extends View {
   getWrongAnswer(): void {
     const editor = document.querySelector('.editor-wrapper') as HTMLElement;
     editor.classList.add('shake');
-    console.log('wrong');
     setTimeout(() => {
       editor.classList.remove('shake');
     }, 1000);

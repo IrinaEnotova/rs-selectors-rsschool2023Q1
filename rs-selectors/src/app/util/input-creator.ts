@@ -23,7 +23,8 @@ export default class InputCreator extends ElementCreator {
 
   setValue(levelId: number, usedHelp: boolean): void {
     const input = this.element as HTMLInputElement;
-    input.value = usedHelp ? dataLevels[levelId - 1].selector : '';
+    const rightAnswer: string = dataLevels[levelId - 1].selector;
+    input.value = usedHelp ? rightAnswer : '';
   }
 
   setPlaceholder(): void {

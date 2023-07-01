@@ -13,8 +13,6 @@ const CssClasses = {
   LEVELS: 'levels-container',
 };
 
-// const START_LEVEL_INDEX = 0;
-
 export default class SidebarView extends View {
   levelElements: LevelView[];
 

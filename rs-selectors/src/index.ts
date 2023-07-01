@@ -4,7 +4,6 @@ import App from './app/app';
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const currentLevel: number = localStorage.getItem('currentLevel') ? +localStorage.getItem('currentLevel')! : 0;
-console.log(currentLevel);
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const app = new App(currentLevel);
 

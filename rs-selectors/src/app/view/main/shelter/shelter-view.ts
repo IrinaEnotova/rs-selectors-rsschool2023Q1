@@ -34,6 +34,7 @@ export default class ShelterView extends View {
         callback: null,
       }),
     );
+
     let usedHelp = false;
     this.elementCreator.addInnerElement(
       new ElementCreator({
@@ -42,13 +43,16 @@ export default class ShelterView extends View {
         textContent: "Help, I'm stuck!",
         callback: (event): void => {
           const target = event.target as EventTarget;
+          const helpText = dataLevels[levelId - 1].helpInfo;
+          const rightAnswer = dataLevels[levelId - 1].selector;
+          const input = document.querySelector('input') as HTMLInputElement;
+          const editorWrapper = document.querySelector('.editor-wrapper') as HTMLElement;
+
           if (target instanceof HTMLElement) {
-            target.textContent = dataLevels[levelId - 1].helpInfo;
+            target.textContent = helpText;
             target.classList.add('help-activated');
-            const input = document.querySelector('input') as HTMLInputElement;
-            input.value = dataLevels[levelId - 1].selector;
+            input.value = rightAnswer;
             usedHelp = true;
-            const editorWrapper = document.querySelector('.editor-wrapper') as HTMLElement;
             editorWrapper.remove();
             this.elementCreator.addInnerElement(new EditorView(levelId, usedHelp).getHtmlElement());
           }

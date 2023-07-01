@@ -1,5 +1,4 @@
 import View from '../view';
-import './main.css';
 
 const CssClasses = {
   MAIN: 'main',
