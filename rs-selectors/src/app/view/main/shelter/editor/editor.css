@@ -3,7 +3,7 @@
   display: flex;
   width: 90%;
   height: 48vh;
-  background-color: rgb(181, 144, 126);
+  background-color: var(--sidebar-color);
   border-radius: 4px;
 }
 
@@ -12,20 +12,20 @@
   height: 97%;
   margin: 5px;
   border-radius: 3px 3px 0 0;
-  border: 1px solid rgba(255, 246, 237, 0.8);
+  border: 1px solid var(--light-text-color);
 }
 
 .css-editor_filename,
 .html-viewer_filename {
   padding: 5px;
   font-size: 0.9rem;
-  color: rgba(255, 246, 237, 0.5);
+  color: var(--light-text-color);
 }
 
 .css-editor_name,
 .html-viewer_name {
   padding: 0 5px 5px 5px;
-  color: rgba(255, 246, 237, 0.8);
+  color: var(--light-text-color);
 }
 
 .css-editor_input-box {
@@ -41,7 +41,7 @@
   width: 70%;
   border-radius: 4px;
   border: none;
-  background: rgba(255, 246, 237, 1);
+  background: var(--light-text-color);
   animation: input 0.5s infinite;
   -webkit-animation: input 1s infinite;
   outline: none;
@@ -57,8 +57,8 @@
   width: 25%;
   font-size: 0.7rem;
   padding: 3px;
-  background: rgba(255, 246, 237, 1);
-  color: rgb(181, 144, 126);
+  background: var(--light-text-color);
+  color: var(--sidebar-color);
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -66,27 +66,27 @@
 }
 
 .css-editor_btn:hover {
-  box-shadow: 2px 1px 1px #bbb4af;
+  box-shadow: 2px 1px 1px var(--gray-border);
 }
 
 .css-editor_container,
 .html-viewer_container {
   display: flex;
   height: 88.7%;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 .editor_markup {
   text-align: end;
   padding: 6px;
   width: 30px;
-  background-color: #ddd;
-  color: rgb(139, 111, 96);
+  background-color: var(--light-markup);
+  color: var(--dark-markup);
 }
 
 .css-editor_content,
 .html-viewer_help-text {
-  color: rgba(181, 144, 126, 0.7);
+  color: var(--dark-text-color);
   padding: 5px;
   width: 100%;
   white-space: pre-wrap;

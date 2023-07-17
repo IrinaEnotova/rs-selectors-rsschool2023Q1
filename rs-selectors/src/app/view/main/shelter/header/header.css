@@ -11,7 +11,7 @@
   background-image: url('../../../../../images/favicon.png');
   background-size: contain;
   background-repeat: no-repeat;
-  color: rgba(181, 144, 126, 0.7);
+  color: var(--dark-text-color);
 }
 
 @keyframes bounce {
@@ -45,7 +45,7 @@
 
 .header_socials {
   height: 23px;
-  color: rgba(181, 144, 126, 0.5);
+  color: var(--socials-color);
   text-decoration: none;
   padding-right: 28px;
   background-image: url('../../../../../images/github-logo.png');
@@ -57,7 +57,7 @@
 }
 
 .header_socials:hover {
-  color: rgba(181, 144, 126);
+  color: var(--sidebar-color);
 }
 
 .school_logo {
@@ -67,12 +67,12 @@
   background-image: url('../../../../../images/rs_school_js.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  color: rgba(181, 144, 126, 0.7);
+  color: var(--dark-text-color);
   cursor: pointer;
 }
 
 .header_year {
   height: 23px;
-  color: rgba(181, 144, 126, 0.5);
+  color: var(--socials-color);
   text-decoration: none;
 }

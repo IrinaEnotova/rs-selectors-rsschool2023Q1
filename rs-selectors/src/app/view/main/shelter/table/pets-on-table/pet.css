@@ -5,8 +5,8 @@
   padding: 20px 30px;
   width: fit-content;
   background: url('../../../../../../images/jail.png') 10%, linear-gradient(#b59183, #96705d);
-  box-shadow: 3px 10px 8px rgba(0, 0, 0, 0.2);
-  border: 3px solid #6d6c72;
+  box-shadow: 3px 10px 8px var(--dark-border);
+  border: 3px solid var(--shelter-border-color);
   transform: rotateX(20deg);
 }
 
