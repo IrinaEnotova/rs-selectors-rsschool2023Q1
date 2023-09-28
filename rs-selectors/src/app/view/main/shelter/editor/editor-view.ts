@@ -1,5 +1,4 @@
 import View from '../../../view';
-// eslint-disable-next-line import/no-cycle
 import CssEditorView from './css-editor/css-editor-view';
 import HtmlEditorView from './html-viewer/html-viewer-view';
 import './editor.css';

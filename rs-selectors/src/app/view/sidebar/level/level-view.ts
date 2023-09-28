@@ -8,7 +8,6 @@ const CssClasses = {
   ITEM_HELP_USED: 'help-used',
 };
 
-// eslint-disable-next-line import/no-mutable-exports
 export let levelsforImport: LevelView[];
 
 export default class LevelView extends View {

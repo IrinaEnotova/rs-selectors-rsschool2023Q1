@@ -1,7 +1,4 @@
-/* eslint-disable max-lines-per-function */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import JSConfetti from 'js-confetti';
-// eslint-disable-next-line import/no-cycle
 import { importMain } from '../../../../../../../app';
 import dataLevels from '../../../../../../../util/dataLevels';
 import ElementCreator from '../../../../../../../util/element-creator';
@@ -68,7 +65,7 @@ export default class CssEditorInputBoxView extends View {
       callback: (): void => {
         const input = document.querySelector('input') as HTMLInputElement;
         const rightAnswer = dataLevels[levelId - 1].selector;
-        if (!Number.isNaN(+input.value)) {
+        if (!Number.isNaN(+input.value) && input.value) {
           levelsforImport.forEach((level) => {
             level.getHtmlElement().classList.remove('level-item__selected');
           });

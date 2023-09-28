@@ -1,5 +1,4 @@
 import ElementCreator from '../../../../../../util/element-creator';
-// eslint-disable-next-line import/no-cycle
 import CssEditorContentView from './css-editor-content/css-editor-content';
 import View from '../../../../../view';
 

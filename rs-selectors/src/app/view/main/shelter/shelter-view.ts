@@ -3,7 +3,6 @@ import './shelter.css';
 import HeaderView from './header/header-view';
 import ElementCreator from '../../../util/element-creator';
 import TableView from './table/table-view';
-// eslint-disable-next-line import/no-cycle
 import EditorView from './editor/editor-view';
 import dataLevels from '../../../util/dataLevels';
 

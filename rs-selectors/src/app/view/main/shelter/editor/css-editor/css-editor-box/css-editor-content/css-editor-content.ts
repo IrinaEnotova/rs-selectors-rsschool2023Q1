@@ -1,6 +1,5 @@
 import ElementCreator from '../../../../../../../util/element-creator';
 import View from '../../../../../../view';
-// eslint-disable-next-line import/no-cycle
 import CssEditorInputBoxView from './css-editor-input';
 
 const CssClasses = {

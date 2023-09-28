@@ -1,9 +1,7 @@
 import '../common.css';
 import MainView from './view/main/main-view';
-// eslint-disable-next-line import/no-cycle
 import SidebarView from './view/sidebar/sidebar-view';
 
-// eslint-disable-next-line import/no-mutable-exports
 export let importMain: MainView;
 
 export default class App {
